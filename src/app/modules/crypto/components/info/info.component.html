@@ -1,0 +1,80 @@
+<div class="px-3 px-lg-5">
+
+  <ng-container *ngIf="!coin else coinDetails">
+    <mat-card>
+      <mat-card-header>
+        <div mat-card-avatar class="mr-3">
+          <ngx-skeleton-loader
+            animation="progress"
+            appearance="circle"
+            [theme]="{
+            height: '50px',
+            width: '50px',
+            'background-color': '#FFD740'}">
+          </ngx-skeleton-loader>
+        </div>
+        <mat-card-title>
+          <ngx-skeleton-loader
+            animation="progress"
+            [theme]="{
+            'border-radius': '5px',
+            height: '25px',
+            width: '150px',
+            'background-color': '#FFD740'}">
+          </ngx-skeleton-loader>
+        </mat-card-title>
+        <mat-card-subtitle>
+          <ngx-skeleton-loader
+            animation="progress"
+            [theme]="{
+            'border-radius': '5px',
+            height: '25px',
+            width: '200px',
+            'background-color': '#FFD740'}">
+          </ngx-skeleton-loader>
+        </mat-card-subtitle>
+      </mat-card-header>
+      <mat-card-content>
+
+      </mat-card-content>
+      <mat-card-actions align="end">
+        <ngx-skeleton-loader
+          animation="progress"
+          [theme]="{
+            'border-radius': '5px',
+            height: '25px',
+            width: '300px',
+            'background-color': '#FFD740'}">
+        </ngx-skeleton-loader>
+      </mat-card-actions>
+    </mat-card>
+  </ng-container>
+
+  <ng-template #coinDetails>
+
+    <mat-card>
+      <mat-card-header>
+        <div mat-card-avatar class="mr-3">
+          <img src="{{ coin.image.small }}" alt="Image de la monnaie" class="rounded-circle">
+        </div>
+        <mat-card-title>
+          <h1 class="mat-h1">{{ coin.symbol }}</h1>
+        </mat-card-title>
+        <mat-card-subtitle>
+          <h2 class="mat-h2">{{coin.name}}</h2>
+        </mat-card-subtitle>
+      </mat-card-header>
+      <mat-card-content>
+        <p>{{ coin.description.en }}</p>
+      </mat-card-content>
+      <mat-card-actions align="end">
+        <h3 class="mat-h3">
+          Current value: 1 {{ coin.symbol }} = {{ coin.market_data.current_price.eur }} <mat-icon>euro_symbol</mat-icon>
+        </h3>
+      </mat-card-actions>
+    </mat-card>
+
+  </ng-template>
+
+
+</div>
