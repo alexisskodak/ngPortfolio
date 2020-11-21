@@ -1,23 +1,18 @@
 <div class="container-fluid px-3 px-xl-5">
-  <div class="row">
+  <div class="row my-3">
     <div class="col-12 col-md-8">
       <section *ngFor="let post of posts">
-        <mat-card class="mb-5">
-          <div class="row align-items-start">
-            <div class="col-12 col-md-8 col-lg-9">
+        <mat-card class="mb-3">
               <mat-card-title>
                 {{ post.title }}
               </mat-card-title>
-            </div>
-            <div class="col-12 col-md-4 col-lg-3 p-0 pr-3 text-right">
-              <button mat-raised-button color="accent" [routerLink]="['posts', post.id]">
-                Go to post
-              </button>
-            </div>
-          </div>
-          <mat-card-subtitle>ID de l'utilisateur: {{ post.userId }} | ID de la
-            publication: {{ post.id }}</mat-card-subtitle>
+          <mat-card-subtitle>User ID: {{ post.userId }} | Post ID: {{ post.id }}</mat-card-subtitle>
           <mat-card-content>{{ post.body }}</mat-card-content>
+          <mat-card-actions align="end">
+            <button mat-raised-button color="accent" [routerLink]="[post.id]">
+              Go to post
+            </button>
+          </mat-card-actions>
         </mat-card>
       </section>
     </div>
