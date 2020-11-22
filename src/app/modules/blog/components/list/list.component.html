@@ -1,6 +1,6 @@
 <div class="container-fluid px-3 px-xl-5">
   <div class="row my-3">
-    <div class="col-12 col-md-8">
+    <div class="col-12 col-md-8 order-last order-md-first">
       <section *ngFor="let post of posts">
         <mat-card class="mb-3">
               <mat-card-title>
@@ -17,8 +17,8 @@
       </section>
     </div>
 
-    <aside class="col-12 col-md-4 position-sticky">
-      <mat-card class="mb-5 sticky-top mat-elevation-z5" id="MySticky">
+    <aside class="col-12 col-md-4 position-sticky order-first order-md-last">
+      <mat-card class="mb-3 sticky-top mat-elevation-z5" id="MySticky">
         <mat-card-title class="mb-3">
           Write a post
         </mat-card-title>
@@ -41,11 +41,11 @@
               </button>
             </mat-form-field>
           </div>
-          <div>
+          <mat-card-actions align="end">
             <button mat-raised-button color="accent">
               Submit
             </button>
-          </div>
+          </mat-card-actions>
         </form>
       </mat-card>
     </aside>

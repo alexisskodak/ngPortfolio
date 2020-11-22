@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import {ActivatedRoute} from '@angular/router';
 import {BlogService} from '../../services/blog.service';
 import {PostInterface} from '../../interfaces/post';
+import {NgForm} from '@angular/forms';
 
 @Component({
   selector: 'app-info',
@@ -27,6 +28,20 @@ export class InfoComponent implements OnInit {
         error => { this.error = error; }
       );
     }, 1000);
+  }
+
+  editPost(f: NgForm): void {
+    this.blogService.updatePost(this.postID, f.value).subscribe(
+      data => {
+        console.log(data);
+        this.post = f.value;
+      }
+    );
+  }
+
+  removePost(): void {
+    // tslint:disable-next-line:radix
+    this.blogService.deletePost(this.postID).subscribe();
   }
 
 }

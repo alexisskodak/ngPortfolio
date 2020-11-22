@@ -1,27 +1,62 @@
 <ng-container *ngIf="!post else postView">
-  <mat-progress-bar mode="indeterminate"></mat-progress-bar>
+  <div class="container-fluid mt-3 px-3 px-xl-5">
+    <div class="row">
+      <div class="col-12 col-md-8">
+        <mat-card class="mb-3">
+          <mat-card-title>
+            <ngx-skeleton-loader
+              count="1"
+              [theme]="{
+                'border-radius': '5px',
+                height: '25px',
+                width: '300px',
+                'background-color': 'primary'}">
+            </ngx-skeleton-loader>
+          </mat-card-title>
+          <mat-card-content>
+            <ngx-skeleton-loader
+              count="3"
+              [theme]="{
+                'border-radius': '5px',
+                height: '25px',
+                width: '200px',
+                'background-color': 'primary'}">
+            </ngx-skeleton-loader>
+          </mat-card-content>
+        </mat-card>
+      </div>
+      <div class="col-12 col-md-8">
+        <mat-card class="mb-3">
+        </mat-card>
+      </div>
+    </div>
+  </div>
 </ng-container>
 
 <ng-template #postView>
   <div class="container-fluid mt-3 px-3 px-xl-5">
     <div class="row">
-      <div class="col-8">
-        <mat-card class="mb-5">
+      <div class="col-12 col-md-8">
+        <mat-card class="mb-3">
           <mat-card-title>{{ post.title }}</mat-card-title>
-          <mat-card-content>{{ post.body }}</mat-card-content>
+          <mat-card-content>
+            <p class="text-justify">
+              {{ post.body }}
+            </p>
+          </mat-card-content>
         </mat-card>
       </div>
-      <div class="col-4">
+      <div class="col-12 col-md-4">
         <aside>
-          <mat-card class="mb-5">
+          <mat-card class="mb-3">
             <mat-card-title class="mb-3">
               Edit post
             </mat-card-title>
-            <form>
+            <form #f="ngForm" (ngSubmit)="editPost(f)">
               <div>
                 <mat-form-field class="example-form-field">
                   <mat-label>Title</mat-label>
-                  <input matInput type="text" value="{{ post.title }}">
+                  <input matInput type="text" value="{{ post.title }}" [ngModel]="post.title" name="title">
                   <button mat-button matSuffix mat-icon-button aria-label="Clear">
                     <mat-icon>close</mat-icon>
                   </button>
@@ -30,15 +65,15 @@
               <div>
                 <mat-form-field class="example-form-field">
                   <mat-label>Body</mat-label>
-                  <textarea matInput value="{{ post.body }}"></textarea>
+                  <textarea matInput value="{{ post.body }}" [ngModel]="post.body" name="body"></textarea>
                   <button mat-button matSuffix mat-icon-button aria-label="Clear">
                     <mat-icon>close</mat-icon>
                   </button>
                 </mat-form-field>
               </div>
               <div>
-                <button mat-raised-button color="primary" class="mr-3">Submit</button>
-                <button mat-raised-button color="warn">Delete</button>
+                <button mat-raised-button color="primary" class="mr-3" type="submit">Submit</button>
+                <button mat-raised-button color="warn" (click)="removePost()">Delete</button>
               </div>
             </form>
           </mat-card>

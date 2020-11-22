@@ -35,4 +35,13 @@ export class BlogService {
       observe: 'response'
     });
   }
+
+  updatePost(id: number, post: PostInterface): Observable<any> {
+    const body = JSON.stringify(post);
+    return this.httpclient.put(`${endpoint}/posts/${id}`, body);
+  }
+
+  deletePost(id: number): Observable<any> {
+    return this.httpclient.delete(`${endpoint}/posts/${id}`);
+  }
 }
