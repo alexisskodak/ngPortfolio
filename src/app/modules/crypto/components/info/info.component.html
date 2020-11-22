@@ -10,7 +10,7 @@
             [theme]="{
             height: '50px',
             width: '50px',
-            'background-color': '#FFD740'}">
+            'background-color': 'primary'}">
           </ngx-skeleton-loader>
         </div>
         <mat-card-title>
@@ -20,7 +20,7 @@
             'border-radius': '5px',
             height: '25px',
             width: '150px',
-            'background-color': '#FFD740'}">
+            'background-color': 'primary'}">
           </ngx-skeleton-loader>
         </mat-card-title>
         <mat-card-subtitle>
@@ -30,21 +30,30 @@
             'border-radius': '5px',
             height: '25px',
             width: '200px',
-            'background-color': '#FFD740'}">
+            'background-color': 'primary'}">
           </ngx-skeleton-loader>
         </mat-card-subtitle>
       </mat-card-header>
       <mat-card-content>
-
+        <div class="text-right">
+          <ngx-skeleton-loader
+            animation="progress"
+            [theme]="{
+            'border-radius': '5px',
+            height: '25px',
+            width: '300px',
+            'background-color': 'primary'}">
+          </ngx-skeleton-loader>
+        </div>
       </mat-card-content>
       <mat-card-actions align="end">
         <ngx-skeleton-loader
           animation="progress"
           [theme]="{
             'border-radius': '5px',
-            height: '25px',
-            width: '300px',
-            'background-color': '#FFD740'}">
+            height: '30px',
+            width: '80px',
+            'background-color': 'primary'}">
         </ngx-skeleton-loader>
       </mat-card-actions>
     </mat-card>
@@ -66,11 +75,14 @@
       </mat-card-header>
       <mat-card-content>
         <p>{{ coin.description.en }}</p>
-      </mat-card-content>
-      <mat-card-actions align="end">
-        <h3 class="mat-h3">
+        <h3 class="mat-h3 text-right">
           Current value: 1 {{ coin.symbol }} = {{ coin.market_data.current_price.eur }} <mat-icon>euro_symbol</mat-icon>
         </h3>
+      </mat-card-content>
+      <mat-card-actions align="end">
+        <a href="{{ coin.links.homepage }}">
+          <button mat-flat-button color="accent">go to site</button>
+        </a>
       </mat-card-actions>
     </mat-card>
 

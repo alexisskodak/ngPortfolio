@@ -13,8 +13,7 @@ export class CryptoService {
 
   constructor(
     private httpclient: HttpClient,
-  ) {
-  }
+  ) { }
 
   getCoins(): Observable<HttpResponse<CoinsInterface[]>> {
     return this.httpclient.get<CoinsInterface[]>(`${endpoint}/coins/list`, {
