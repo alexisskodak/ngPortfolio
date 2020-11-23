@@ -1,0 +1,6 @@
+@import "src/my-themes.scss";
+
+.error-snackbar {
+  background-color: mat-color(map-get($my-theme, warn));
+  color: white;
+}

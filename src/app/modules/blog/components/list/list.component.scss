@@ -1,4 +1,11 @@
+@import "src/my-themes.scss";
+
 #MySticky {
   position: sticky;
   top: 0.5rem;
+}
+
+.error-snackbar {
+  background-color: mat-color(map-get($my-theme, warn));
+  color: white;
 }

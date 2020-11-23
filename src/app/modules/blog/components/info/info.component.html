@@ -50,30 +50,33 @@
         <aside>
           <mat-card class="mb-3">
             <mat-card-title class="mb-3">
-              Edit post
+              <h2 class="mat-h2">Edit post</h2>
             </mat-card-title>
-            <form #f="ngForm" (ngSubmit)="editPost(f)">
+            <mat-card-subtitle>
+              <h3 class="mat-h3 text-uppercase">
+                <code class="text-muted">GET, PUT, DELETE</code>
+              </h3>
+            </mat-card-subtitle>
+            <form #f="ngForm" (ngSubmit)="editPost(f)" novalidate>
               <div>
-                <mat-form-field class="example-form-field">
+                <mat-form-field class="example-form-field w-100" appearance="outline">
                   <mat-label>Title</mat-label>
-                  <input matInput type="text" value="{{ post.title }}" [ngModel]="post.title" name="title">
-                  <button mat-button matSuffix mat-icon-button aria-label="Clear">
-                    <mat-icon>close</mat-icon>
-                  </button>
+                  <input matInput #title type="text" name="title" minlength="5" maxlength="128" ngModel required [disabled]="submitted">
+                  <mat-hint align="end">{{ title.value.length }}</mat-hint>
                 </mat-form-field>
               </div>
               <div>
-                <mat-form-field class="example-form-field">
+                <mat-form-field class="example-form-field w-100" appearance="outline">
                   <mat-label>Body</mat-label>
-                  <textarea matInput value="{{ post.body }}" [ngModel]="post.body" name="body"></textarea>
-                  <button mat-button matSuffix mat-icon-button aria-label="Clear">
-                    <mat-icon>close</mat-icon>
-                  </button>
+                  <textarea matInput name="body" rows="4" ngModel [disabled]="submitted">
+                  </textarea>
                 </mat-form-field>
               </div>
               <div>
                 <button mat-raised-button color="primary" class="mr-3" type="submit">Submit</button>
-                <button mat-raised-button color="warn" (click)="removePost()">Delete</button>
+                <button mat-raised-button color="warn" (click)="removePost(post.id)" type="button">
+                  Delete
+                </button>
               </div>
             </form>
           </mat-card>

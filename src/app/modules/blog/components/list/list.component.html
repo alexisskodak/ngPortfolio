@@ -6,7 +6,7 @@
               <mat-card-title>
                 {{ post.title }}
               </mat-card-title>
-          <mat-card-subtitle>User ID: {{ post.userId }} | Post ID: {{ post.id }}</mat-card-subtitle>
+          <mat-card-subtitle>Post ID: {{ post.id }}</mat-card-subtitle>
           <mat-card-content>{{ post.body }}</mat-card-content>
           <mat-card-actions align="end">
             <button mat-raised-button color="accent" [routerLink]="[post.id]">
@@ -20,23 +20,34 @@
     <aside class="col-12 col-md-4 position-sticky order-first order-md-last">
       <mat-card class="mb-3 sticky-top mat-elevation-z5" id="MySticky">
         <mat-card-title class="mb-3">
-          Write a post
+          <h2 class="mat-h2">
+            Write a post
+          </h2>
         </mat-card-title>
-        <form (ngSubmit)="pushPost()">
+        <mat-card-subtitle>
+          <mat-card-subtitle>
+            <h3 class="mat-h3 text-uppercase">
+              <code class="text-muted">GET, POST</code>
+            </h3>
+          </mat-card-subtitle>
+        </mat-card-subtitle>
+        <form #f="ngForm" (ngSubmit)="pushPost(f)" novalidate>
           <div>
-            <mat-form-field class="example-form-field">
+            <mat-form-field class="example-form-field" class="w-100" appearance="outline" color="primary">
               <mat-label>Title</mat-label>
-              <input matInput name="title" type="text" [(ngModel)]="post.title"/>
-              <button mat-button matSuffix mat-icon-button>
+              <input matInput #title name="title" type="text" class="w-100" minlength="5" [(ngModel)]="post.title" required>
+              <mat-hint align="end">{{ title.value.length }}</mat-hint>
+              <button mat-button *ngIf="post.title" matSuffix mat-icon-button aria-label="Clear" (click)="post.title = ''">
                 <mat-icon>close</mat-icon>
               </button>
             </mat-form-field>
           </div>
           <div>
-            <mat-form-field class="example-form-field">
+            <mat-form-field class="example-form-field" class="w-100" appearance="outline" color="primary">
               <mat-label>Body</mat-label>
-              <textarea name="body" matInput [(ngModel)]="post.body"></textarea>
-              <button mat-button matSuffix mat-icon-button>
+              <textarea matInput rows="4" class="w-100" [(ngModel)]="post.body" name="body">
+              </textarea>
+              <button mat-button *ngIf="post.body" matSuffix mat-icon-button aria-label="Clear" (click)="post.body = ''">
                 <mat-icon>close</mat-icon>
               </button>
             </mat-form-field>
