@@ -4,7 +4,7 @@ import { ListComponent as BlogListComponent } from './modules/blog/components/li
 import { InfoComponent as BlogInfoComponent} from './modules/blog/components/info/info.component';
 import { ListComponent as CryptoListComponent } from './modules/crypto/components/list/list.component';
 import { InfoComponent as CryptoInfoComponent } from './modules/crypto/components/info/info.component';
-import {HomeComponent} from './modules/home/home.component';
+import { HomeComponent } from './modules/home/components/home/home.component';
 
 const routes: Routes = [
   { path: '', component: HomeComponent},

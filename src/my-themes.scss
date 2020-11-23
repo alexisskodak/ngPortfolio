@@ -3,20 +3,20 @@
 @include mat-core();
 
 $md-mcgpalette0: (
-  50 : #e8edf1,
-  100 : #c7d2dd,
-  200 : #a1b4c6,
-  300 : #7b96af,
-  400 : #5f809e,
-  500 : #43698d,
-  600 : #3d6185,
-  700 : #34567a,
-  800 : #2c4c70,
-  900 : #1e3b5d,
-  A100 : #9cc7ff,
-  A200 : #69aaff,
-  A400 : #368dff,
-  A700 : #1d7fff,
+  50 : #e2ecf5,
+  100 : #b6cee5,
+  200 : #86aed4,
+  300 : #558ec3,
+  400 : #3075b6,
+  500 : #0c5da9,
+  600 : #0a55a2,
+  700 : #084b98,
+  800 : #06418f,
+  900 : #03307e,
+  A100 : #acc4ff,
+  A200 : #79a0ff,
+  A400 : #467cff,
+  A700 : #2c6aff,
   contrast: (
     50 : #000000,
     100 : #000000,
@@ -35,22 +35,21 @@ $md-mcgpalette0: (
   )
 );
 
-
 $md-mcgpalette1: (
-  50 : #fcf6f0,
-  100 : #f8e8db,
-  200 : #f3d9c3,
-  300 : #eecaaa,
-  400 : #eabe98,
-  500 : #e6b386,
-  600 : #e3ac7e,
-  700 : #dfa373,
-  800 : #db9a69,
-  900 : #d58b56,
+  50 : #fffbe7,
+  100 : #fff6c4,
+  200 : #fff09d,
+  300 : #ffea76,
+  400 : #ffe658,
+  500 : #ffe13b,
+  600 : #ffdd35,
+  700 : #ffd92d,
+  800 : #ffd526,
+  900 : #ffcd19,
   A100 : #ffffff,
-  A200 : #ffffff,
-  A400 : #ffe4d2,
-  A700 : #ffd5b8,
+  A200 : #fffffd,
+  A400 : #fff3ca,
+  A700 : #ffedb1,
   contrast: (
     50 : #000000,
     100 : #000000,
@@ -70,7 +69,7 @@ $md-mcgpalette1: (
 );
 
 $my-primary: mat-palette($md-mcgpalette0);
-$my-accent: mat-palette($md-mcgpalette1, A700, A900, A400);
+$my-accent: mat-palette($md-mcgpalette1);
 $my-warn: mat-palette($mat-red);
 
 $my-theme: mat-light-theme($my-primary, $my-accent, $my-warn);
