@@ -61,7 +61,6 @@ export class InfoComponent implements OnInit {
         }
       );
       this.openSnackBar('edited');
-      this.submitted = true;
     }
     else {
       this.openErrorSnackbar();

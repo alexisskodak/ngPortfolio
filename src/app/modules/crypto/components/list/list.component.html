@@ -1,9 +1,13 @@
-<div class="px-0 px-md-3 px-lg-5 mt-0 mt-md-3">
+<div class="px-0 px-md-3 px-lg-5 mt-0 py-0 pb-md-3">
   <div class="mat-elevation-z8">
     <div class="coin-container">
       <div class="p-4">
         <h1>Cryptocurrency List</h1>
       </div>
+      <mat-form-field class="w-100 px-4">
+        <mat-label>Filter</mat-label>
+        <input matInput (keyup)="applyFilter($event)" placeholder="Ex. bitcoin" #input>
+      </mat-form-field>
       <table mat-table [dataSource]="dataSource" class="w-100">
 
         <ng-container matColumnDef="ID">
@@ -25,6 +29,10 @@
 
         <tr mat-header-row *matHeaderRowDef="displayedColumns; sticky: true"></tr>
         <tr mat-row *matRowDef="let row; columns: displayedColumns"></tr>
+
+        <tr class="mat-row" *matNoDataRow>
+          <td class="mat-cell" colspan="3">No coins match the filter "{{ input.value }}"</td>
+        </tr>
       </table>
 
     </div>

@@ -12,6 +12,7 @@ import {MatTableModule} from '@angular/material/table';
 import {MatMenuModule} from '@angular/material/menu';
 import {MatListModule} from '@angular/material/list';
 import {MatTabsModule} from '@angular/material/tabs';
+import {MatSnackBarModule} from '@angular/material/snack-bar';
 
 const MaterialComponents = [
   MatButtonModule,
@@ -26,7 +27,8 @@ const MaterialComponents = [
   MatTableModule,
   MatMenuModule,
   MatListModule,
-  MatTabsModule
+  MatTabsModule,
+  MatSnackBarModule,
 ];
 
 @NgModule({

@@ -35,7 +35,16 @@
         </mat-card-subtitle>
       </mat-card-header>
       <mat-card-content>
-        <div class="text-right">
+        <ngx-skeleton-loader
+          animation="progress"
+          count="1"
+          [theme]="{
+            'border-radius': '5px',
+            height: '50px',
+            width: '100%',
+            'background-color': 'primary'}">
+        </ngx-skeleton-loader>
+        <div class="text-right mt-3">
           <ngx-skeleton-loader
             animation="progress"
             [theme]="{
@@ -74,13 +83,16 @@
         </mat-card-subtitle>
       </mat-card-header>
       <mat-card-content>
-        <p>{{ coin.description.en }}</p>
+        <p class="coin-description" *ngIf="coin.description.en else fallbackDescription">{{ coin.description.en }}</p>
+        <ng-template #fallbackDescription>
+          <h3 class="mat-h3">Sorry, no description was provided by API for this coin</h3>
+        </ng-template>
         <h3 class="mat-h3 text-right">
           Current value: 1 {{ coin.symbol }} = {{ coin.market_data.current_price.eur }} <mat-icon>euro_symbol</mat-icon>
         </h3>
       </mat-card-content>
       <mat-card-actions align="end">
-        <a href="{{ coin.links.homepage }}">
+        <a href="{{ coin.links.homepage[0] }}">
           <button mat-flat-button color="accent">go to site</button>
         </a>
       </mat-card-actions>
